@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: pd-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: technologies
+          uri: lb://PD-TECHNOLOGY
+          predicates:
+            - Path=/technologies/**
+eureka:
+  client:
+    serviceUrl:
+      registerWithEureka: true
+      defaultZone: http://localhost:9000/eureka/
+server:
+  port: 8080
